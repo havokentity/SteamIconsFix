@@ -1,5 +1,7 @@
 # Steam Icons Fix
 
+(Windows only, might be helpful for doing other things though)
+
 This Python script is used to download icons for all the installed games in your Steam library. The script also allows downloading icons for specific games by specifying their app IDs as command-line arguments. If any icons fail to download, the script will print a list of the failed icons at the end. You can then run the script again with the list of failed app IDs as arguments to retry downloading the icons for the failed games.
 
 
