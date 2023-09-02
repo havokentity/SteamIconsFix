@@ -1,6 +1,14 @@
 # Steam Icons Fix
 
-This Python script is used to download icons for all installed games in your Steam library. The script also allows downloading icons for specific games by specifying their app IDs as command-line arguments. If any icons fail to download, the script will print a list of the failed icons at the end. You can then run the script again with the list of failed app IDs as arguments to retry downloading the icons for the failed games.
+This Python script is used to download icons for all the installed games in your Steam library. The script also allows downloading icons for specific games by specifying their app IDs as command-line arguments. If any icons fail to download, the script will print a list of the failed icons at the end. You can then run the script again with the list of failed app IDs as arguments to retry downloading the icons for the failed games.
+
+
+
+My Steam Icons were blank on my desktop after a fresh windows 10 / windows 11 re-install. The icons were missing and it was painful to have to download them one by one so I made this script to do it for me. 
+
+I hope it helps you too.
+
+(After running the script, you might need to refresh your desktop/restart PC or clear icon cache to see the icons, it worked for me after a refresh)
 
 ## Prerequisites
 
