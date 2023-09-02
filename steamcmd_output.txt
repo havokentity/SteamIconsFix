@@ -1,0 +1,788 @@
+Steam Console Client (c) Valve Corporation - version 1691628584
+-- type 'quit' to exit --
+Loading Steam API...OK
+AppID : 502570, change number : 20140874/0, last change : Sat Sep  2 20:13:58 2023 
+"502570"
+{
+	"common"
+	{
+		"name"		"Houdini Indie"
+		"type"		"Application"
+		"oslist"		"windows,macos"
+		"osarch"		"64"
+		"clienticon"		"356a5f2046db8d35db19738d711bf0e40994fd9c"
+		"clienttga"		"7f9434e1f7b73679c046dcf3564e209664bec58c"
+		"icon"		"b369c2c96c1001a28d6f697195ce9e37c4cb5049"
+		"logo"		"ff454ed7d70cf23501dff16f67c308aee579490c"
+		"logo_small"		"ff454ed7d70cf23501dff16f67c308aee579490c_thumb"
+		"ReleaseState"		"released"
+		"eulas"
+		{
+			"0"
+			{
+				"id"		"502570_eula_0"
+				"name"		"Houdini Indie EULA"
+				"url"		"https://store.steampowered.com//eula/502570_eula_0"
+				"version"		"4"
+			}
+		}
+		"osextended"		"macos64"
+		"steam_deck_compatibility"
+		{
+			"category"		"1"
+			"test_timestamp"		"1658534400"
+			"tested_build_id"		"0"
+			"tests"
+			{
+				"0"
+				{
+					"display"		"2"
+					"token"		"#SteamDeckVerified_TestResult_SteamOSDoesNotSupport_Software"
+				}
+			}
+			"configuration"
+			{
+				"supported_input"		"other"
+				"requires_manual_keyboard_invoke"		"0"
+				"requires_non_controller_launcher_nav"		"0"
+				"primary_player_is_controller_slot_0"		"0"
+				"non_deck_display_glyphs"		"0"
+				"small_text"		"0"
+				"requires_internet_for_setup"		"0"
+				"requires_internet_for_singleplayer"		"0"
+				"recommended_runtime"		"proton-stable"
+				"requires_h264"		"0"
+				"gamescope_frame_limiter_not_supported"		"0"
+			}
+		}
+		"metacritic_name"		"Houdini Indie"
+		"controller_support"		"partial"
+		"small_capsule"
+		{
+			"english"		"capsule_231x87.jpg"
+		}
+		"header_image"
+		{
+			"english"		"header.jpg"
+		}
+		"library_assets"
+		{
+			"library_capsule"		"en"
+			"library_hero"		"en"
+			"library_logo"		"en"
+			"logo_position"
+			{
+				"pinned_position"		"BottomLeft"
+				"width_pct"		"47.08963911525029"
+				"height_pct"		"96.96034196152932"
+			}
+		}
+		"store_asset_mtime"		"1568753044"
+		"associations"
+		{
+			"0"
+			{
+				"type"		"developer"
+				"name"		"SideFX"
+			}
+			"1"
+			{
+				"type"		"publisher"
+				"name"		"SideFX"
+			}
+		}
+		"primary_genre"		"51"
+		"genres"
+		{
+			"0"		"51"
+			"1"		"53"
+			"2"		"58"
+			"3"		"60"
+		}
+		"category"
+		{
+			"category_18"		"1"
+			"category_23"		"1"
+		}
+		"supported_languages"
+		{
+			"english"
+			{
+				"supported"		"true"
+			}
+		}
+		"steam_release_date"		"1539200423"
+		"community_hub_visible"		"1"
+		"gameid"		"502570"
+		"exfgls"		"1"
+		"store_tags"
+		{
+			"0"		"872"
+			"1"		"13906"
+			"2"		"4191"
+			"3"		"84"
+			"4"		"492"
+			"5"		"784"
+			"6"		"5125"
+		}
+		"review_score"		"8"
+		"review_percentage"		"95"
+	}
+	"extended"
+	{
+		"disableoverlayinjection"		"1"
+		"enablegameoverlayforapp"		"0"
+		"ignorechildprocesses"		"1"
+		"disableoverlay"		"1"
+		"developer"		"SideFX"
+		"publisher"		"SideFX"
+		"homepage"		"http://www.sidefx.com"
+	}
+	"config"
+	{
+		"contenttype"		"3"
+		"installdir"		"Houdini Indie"
+		"launch"
+		{
+			"2"
+			{
+				"executable"		"bin/hindie.steam.exe"
+				"workingdir"		"bin"
+				"description"		"Houdini Indie 16.5"
+				"type"		"none"
+				"config"
+				{
+					"oslist"		"windows"
+					"osarch"		"64"
+				}
+			}
+			"3"
+			{
+				"executable"		"bin/HARS.exe"
+				"arguments"		"-n hapi -ta"
+				"workingdir"		"bin"
+				"description"		"Houdini Engine Server (Named Pipe)"
+				"type"		"none"
+				"config"
+				{
+					"oslist"		"windows"
+					"osarch"		"64"
+				}
+			}
+			"4"
+			{
+				"executable"		"bin/HARS.exe"
+				"arguments"		"-s 9090 -ta"
+				"workingdir"		"bin"
+				"description"		"Houdini Engine Server (TCP Socket)"
+				"type"		"none"
+				"config"
+				{
+					"oslist"		"windows"
+					"osarch"		"64"
+				}
+			}
+			"5"
+			{
+				"executable"		"HoudiniIndieSteamLaunch"
+				"description"		"Houdini Indie"
+				"type"		"none"
+				"config"
+				{
+					"oslist"		"macos"
+				}
+			}
+		}
+	}
+	"depots"
+	{
+		"workshopdepot"		"502570"
+		"228986"
+		{
+			"config"
+			{
+				"oslist"		"windows"
+			}
+			"depotfromapp"		"228980"
+			"sharedinstall"		"1"
+		}
+		"228987"
+		{
+			"config"
+			{
+				"oslist"		"windows"
+			}
+			"depotfromapp"		"228980"
+			"sharedinstall"		"1"
+		}
+		"502571"
+		{
+			"config"
+			{
+				"oslist"		"windows"
+				"osarch"		"64"
+			}
+			"manifests"
+			{
+				"public"
+				{
+					"gid"		"5989213798479034799"
+					"size"		"4218023908"
+					"download"		"1715878544"
+				}
+				"daily_185"
+				{
+					"gid"		"5901179122116482877"
+					"size"		"3733965344"
+					"download"		"1559458896"
+				}
+				"daily_19"
+				{
+					"gid"		"7858184958962432022"
+					"size"		"4165666834"
+					"download"		"1630059856"
+				}
+				"daily_19.5"
+				{
+					"gid"		"2203105352884251381"
+					"size"		"4220661153"
+					"download"		"1716358608"
+				}
+				"daily_19.5_apple_arm64"
+				{
+					"gid"		"7761748776803209013"
+					"size"		"4203898458"
+					"download"		"1705999776"
+				}
+				"daily_19_py2"
+				{
+					"gid"		"6322668231166458773"
+					"size"		"4138251524"
+					"download"		"1626951648"
+				}
+				"houdini_19.5_apple_arm64"
+				{
+					"gid"		"7761748776803209013"
+					"size"		"4203898458"
+					"download"		"1705999776"
+				}
+				"houdini18.0"
+				{
+					"gid"		"723903052886716405"
+					"size"		"3597612101"
+					"download"		"1382228288"
+				}
+				"houdini18.5"
+				{
+					"gid"		"3157754418680291970"
+					"size"		"3980118527"
+					"download"		"1587324464"
+				}
+				"houdini18.5.596"
+				{
+					"gid"		"3208855049913647132"
+					"size"		"3965041475"
+					"download"		"1507146256"
+				}
+				"houdini185_py3"
+				{
+					"gid"		"1746312102034644107"
+					"size"		"3998396734"
+					"download"		"1588213200"
+				}
+				"houdini19.0"
+				{
+					"gid"		"8593797450475842033"
+					"size"		"4163856667"
+					"download"		"1629098224"
+				}
+				"houdini19.0.383_py3"
+				{
+					"gid"		"846550309357705849"
+					"size"		"4080108445"
+					"download"		"1602602288"
+				}
+				"houdini19.0.455_py3"
+				{
+					"gid"		"3916562547289221371"
+					"size"		"4082209225"
+					"download"		"1604374048"
+				}
+				"houdini19.0_previous"
+				{
+					"gid"		"838926600285986633"
+					"size"		"4129658279"
+					"download"		"1624422848"
+				}
+				"houdini19.0_py2"
+				{
+					"gid"		"4728412730149625097"
+					"size"		"4136305455"
+					"download"		"1627426976"
+				}
+				"houdini19.5"
+				{
+					"gid"		"2203105352884251381"
+					"size"		"4220661153"
+					"download"		"1716358608"
+				}
+				"houdini19.5.303"
+				{
+					"gid"		"504889839198547108"
+					"size"		"4382004668"
+					"download"		"1744396816"
+				}
+				"houdini19.5.493"
+				{
+					"gid"		"7761748776803209013"
+					"size"		"4203898458"
+					"download"		"1705999776"
+				}
+				"houdini19.5_previous"
+				{
+					"gid"		"4591907297590602500"
+					"size"		"4218420565"
+					"download"		"1716020176"
+				}
+			}
+			"encryptedmanifests"
+			{
+				"daily_head"
+				{
+					"gid"		"840B72CDE4E89FF8E84896D502EBD7F4"
+					"size"		"F3142F72D3EE81ED41246E5B43825EBE"
+					"download"		"97D295D172D5D1A4D30B65A53105F2EE"
+				}
+				"daily_head_apple_arm64"
+				{
+					"gid"		"17D0783BD257A15627D2ADD46BDCAC5C"
+					"size"		"50F0EF30DE9E888C4A2FE1557C3B5DA5"
+					"download"		"0104AEB29250CD3738B286E258D97C23"
+				}
+			}
+		}
+		"502572"
+		{
+			"config"
+			{
+				"oslist"		"macos"
+				"osarch"		"64"
+			}
+			"manifests"
+			{
+				"public"
+				{
+					"gid"		"3945191684574352912"
+					"size"		"3624319381"
+					"download"		"1531527728"
+				}
+				"daily_185"
+				{
+					"gid"		"1341825090798944602"
+					"size"		"6151078286"
+					"download"		"1771487296"
+				}
+				"daily_19"
+				{
+					"gid"		"4773705004166109220"
+					"size"		"3512704505"
+					"download"		"1421648448"
+				}
+				"daily_19.5"
+				{
+					"gid"		"8079675663295961200"
+					"size"		"3624368868"
+					"download"		"1531574048"
+				}
+				"daily_19.5_apple_arm64"
+				{
+					"gid"		"5319886127658617372"
+					"size"		"3328674011"
+					"download"		"1463045856"
+				}
+				"daily_19_py2"
+				{
+					"gid"		"4341750439400348972"
+					"size"		"3466900137"
+					"download"		"1411703040"
+				}
+				"houdini_19.5_apple_arm64"
+				{
+					"gid"		"8506659923250258590"
+					"size"		"3328639085"
+					"download"		"1463030640"
+				}
+				"houdini18.0"
+				{
+					"gid"		"2038917321387594343"
+					"size"		"5408679641"
+					"download"		"1531157472"
+				}
+				"houdini18.5"
+				{
+					"gid"		"3887580849599486370"
+					"size"		"6150088461"
+					"download"		"1771207872"
+				}
+				"houdini18.5.596"
+				{
+					"gid"		"367828769453087417"
+					"size"		"5985060960"
+					"download"		"1673353008"
+				}
+				"houdini185_py3"
+				{
+					"gid"		"8406557942481531366"
+					"size"		"6188413901"
+					"download"		"1781104176"
+				}
+				"houdini19.0"
+				{
+					"gid"		"3081557455536245406"
+					"size"		"3511009686"
+					"download"		"1422472320"
+				}
+				"houdini19.0.383_py3"
+				{
+					"gid"		"6379738641829377786"
+					"size"		"3573105029"
+					"download"		"1433496096"
+				}
+				"houdini19.0.455_py3"
+				{
+					"gid"		"7344707911763731965"
+					"size"		"3577051182"
+					"download"		"1433877008"
+				}
+				"houdini19.0_previous"
+				{
+					"gid"		"5754162304197894409"
+					"size"		"3510841851"
+					"download"		"1420231168"
+				}
+				"houdini19.0_py2"
+				{
+					"gid"		"7634700405482633852"
+					"size"		"3465212397"
+					"download"		"1409954000"
+				}
+				"houdini19.5"
+				{
+					"gid"		"3945191684574352912"
+					"size"		"3624319381"
+					"download"		"1531527728"
+				}
+				"houdini19.5.303"
+				{
+					"gid"		"5540897734355711308"
+					"size"		"3633224097"
+					"download"		"1518897664"
+				}
+				"houdini19.5.493"
+				{
+					"gid"		"2927140444853116763"
+					"size"		"3611697534"
+					"download"		"1522342896"
+				}
+				"houdini19.5_previous"
+				{
+					"gid"		"6230989198974366054"
+					"size"		"3624273044"
+					"download"		"1531504960"
+				}
+			}
+			"encryptedmanifests"
+			{
+				"daily_head"
+				{
+					"gid"		"5A9F0FBA73116731E889006C3AD6ADEE"
+					"size"		"E2E4CD683FB0986C59010989D0D3D5C6"
+					"download"		"D498A76B419E813BE5EF96654FE339F4"
+				}
+				"daily_head_apple_arm64"
+				{
+					"gid"		"7C0F0CAB32714158EC3B9B167E08A51F"
+					"size"		"75C0A0D20B6A78DFDFD9A0A96AEBEDC0"
+					"download"		"1FC6E630E9248DDFEF7E4B21BBE31AAA"
+				}
+			}
+		}
+		"branches"
+		{
+			"public"
+			{
+				"buildid"		"12014046"
+				"timeupdated"		"1692815347"
+			}
+			"daily_185"
+			{
+				"buildid"		"10569142"
+				"description"		"Daily Houdini 18.5 builds"
+				"timeupdated"		"1676572426"
+			}
+			"daily_19"
+			{
+				"buildid"		"11910374"
+				"description"		"Daily Houdini 19.0 builds"
+				"timeupdated"		"1691660980"
+			}
+			"daily_19.5"
+			{
+				"buildid"		"12096054"
+				"description"		"Daily Houdini 19.5 builds"
+				"timeupdated"		"1693665792"
+			}
+			"daily_19.5_apple_arm64"
+			{
+				"buildid"		"12095241"
+				"description"		"Daily Houdini 19.5 build (Apple Silicon)"
+				"timeupdated"		"1693650192"
+			}
+			"daily_19_py2"
+			{
+				"buildid"		"11910763"
+				"description"		"Daily Houdini 19.0 Python 2 builds"
+				"timeupdated"		"1691664068"
+			}
+			"daily_head"
+			{
+				"buildid"		"11718382"
+				"pwdrequired"		"1"
+				"timeupdated"		"1689587530"
+			}
+			"daily_head_apple_arm64"
+			{
+				"buildid"		"12023927"
+				"pwdrequired"		"1"
+				"timeupdated"		"1692891068"
+			}
+			"houdini_19.5_apple_arm64"
+			{
+				"buildid"		"12014813"
+				"description"		"Houdini 19.5 Production Build (Apple Silicon)"
+				"timeupdated"		"1692815457"
+			}
+			"houdini18.0"
+			{
+				"buildid"		"5621603"
+				"description"		"Houdini18.0 Production Build"
+				"timeupdated"		"1601588222"
+			}
+			"houdini18.5"
+			{
+				"buildid"		"7718498"
+				"description"		"Houdini 18.5 Production build"
+				"timeupdated"		"1637078670"
+			}
+			"houdini18.5.596"
+			{
+				"buildid"		"6801286"
+				"description"		"Houdini 18.5.596"
+				"timeupdated"		"1654882884"
+			}
+			"houdini185_py3"
+			{
+				"buildid"		"7719048"
+				"description"		"Houdini 18.5 Python 3 Production Build"
+				"timeupdated"		"1637078552"
+			}
+			"houdini19.0"
+			{
+				"buildid"		"9386044"
+				"description"		"Houdini 19.0 Production Build"
+				"timeupdated"		"1661456197"
+			}
+			"houdini19.0.383_py3"
+			{
+				"buildid"		"7613265"
+				"description"		"Houdini 19.0.383 Python 3"
+				"timeupdated"		"1648236344"
+			}
+			"houdini19.0.455_py3"
+			{
+				"buildid"		"7808964"
+				"description"		"Houdini 19.0.455 Python3"
+				"timeupdated"		"1645555783"
+			}
+			"houdini19.0_previous"
+			{
+				"buildid"		"8993129"
+				"description"		"Previous Houdini 19.0 Production Build"
+				"timeupdated"		"1661457136"
+			}
+			"houdini19.0_py2"
+			{
+				"buildid"		"9385410"
+				"description"		"Houdini 19.0 py2 Production Build"
+				"timeupdated"		"1661456456"
+			}
+			"houdini19.5"
+			{
+				"buildid"		"12051970"
+				"description"		"Houdini 19.5 Production Build"
+				"timeupdated"		"1693247658"
+			}
+			"houdini19.5.303"
+			{
+				"buildid"		"9157280"
+				"description"		"Houdini 19.5.303"
+				"timeupdated"		"1675184814"
+			}
+			"houdini19.5.493"
+			{
+				"buildid"		"10306673"
+				"description"		"Houdini 19.5.493"
+				"timeupdated"		"1680201403"
+			}
+			"houdini19.5_previous"
+			{
+				"buildid"		"11750298"
+				"description"		"Previous 19.5 Production Build"
+				"timeupdated"		"1692815550"
+			}
+		}
+	}
+	"ufs"
+	{
+		"quota"		"20000000000"
+		"maxnumfiles"		"10000"
+		"savefiles"
+		{
+			"0"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini16.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"1"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini17.0"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"2"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini17.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"4"
+			{
+				"root"		"MacHome"
+				"path"		"/Library/Preferences/houdini/18.0"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"MacOS"
+				}
+				"recursive"		"1"
+			}
+			"5"
+			{
+				"root"		"MacHome"
+				"path"		"/Library/Preferences/houdini/17.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"MacOS"
+				}
+				"recursive"		"1"
+			}
+			"6"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini18.0"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"7"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini18.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"8"
+			{
+				"root"		"MacHome"
+				"path"		"/Library/Preferences/houdini/18.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"MacOS"
+				}
+				"recursive"		"1"
+			}
+			"9"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini19.0"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"10"
+			{
+				"root"		"MacHome"
+				"path"		"/Library/Preferences/houdini/19.0"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"MacOS"
+				}
+				"recursive"		"1"
+			}
+			"11"
+			{
+				"root"		"WinMyDocuments"
+				"path"		"houdini19.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"Windows"
+				}
+				"recursive"		"1"
+			}
+			"12"
+			{
+				"root"		"MacHome"
+				"path"		"/Library/Preferences/houdini/19.5"
+				"pattern"		"*"
+				"platforms"
+				{
+					"1"		"MacOS"
+				}
+				"recursive"		"1"
+			}
+		}
+	}
+}
+Redirecting stderr to 'C:\Program Files (x86)\Steam\logs\stderr.txt'
+[  0%] Checking for available updates...
+[----] Verifying installation...
