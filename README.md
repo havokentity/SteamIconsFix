@@ -5,8 +5,21 @@ This Python script is used to download icons for all installed games in your Ste
 ## Prerequisites
 
 - [Python](https://www.python.org/downloads/)
+- [Steam](https://store.steampowered.com/about/)
+
+
+The below are required Python packages. You can install them by running the following commands in terminal:
+
+```bash
+pip install -r requirements.txt
+```
 - [Requests](https://docs.python-requests.org/en/master/user/install/#install)
-- [tqdm](https://github.com/tqdm/tqdm#installation)
+- [tqdm](https://github.com/tqdm/tqdm#installation) 
+
+This is downloaded and installed by the script if it is not already installed:
+- [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD)
+
+
 
 ## Installation
 
