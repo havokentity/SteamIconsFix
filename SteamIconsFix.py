@@ -212,6 +212,8 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
         with open(output_file, "r", encoding="utf-8") as file:
             lines = file.readlines()
 
+        foundClientIcon = False
+
         # Loop over each line in the output
         for line in lines:
             # If the line contains the string "clienticon", extract the icon file name
@@ -228,6 +230,8 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
                     print(
                         f"Client Icon URL for {game_name} - {app_id}: {client_icon_url}"
                     )
+
+                    foundClientIcon = True
 
                     # Download the icon
                     response = requests.get(client_icon_url)
@@ -255,7 +259,8 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
                         )
 
                     break
-        else:
+
+        if not foundClientIcon:
             print(
                 f"Client Icon URL for {game_name} - {app_id} not found in the SteamCMD output."
             )
