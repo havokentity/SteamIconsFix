@@ -25,6 +25,7 @@ pip install -r requirements.txt
 ```
 - [Requests](https://docs.python-requests.org/en/master/user/install/#install)
 - [tqdm](https://github.com/tqdm/tqdm#installation) 
+- [Python Steam](https://github.com/ValvePython/steam) [This is largely unused but I've added it as a requirement for future updates]
 
 This is downloaded and installed by the script if it is not already installed:
 - [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Downloading_SteamCMD)
@@ -81,3 +82,6 @@ This project makes use of the following software:
 - Python 3.10.9: An interpreted high-level general-purpose programming language. (Will probably work on any Python 3 version)
 - Requests: A simple, yet powerful, HTTP library for Python.
 - tqdm: A fast, extensible progress bar for Python.
+- SteamCMD: A command-line version of the Steam client which can be used to download icons for Steam games.
+- Steam: A digital distribution platform developed by Valve Corporation for purchasing and playing video games.
+- ValvePython/steam: A Python library for interacting with Steam.

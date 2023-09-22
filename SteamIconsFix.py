@@ -50,6 +50,7 @@ SOFTWARE.
 # Import necessary libraries
 import os
 import io
+import time
 import zipfile
 import re
 import sys
@@ -200,17 +201,25 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
 
 
     # Define the SteamCMD command and output file path
+    # f'"{steamcmd_exe_path}" +login anonymous +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
     steamcmd_command = (
-        f'"{steamcmd_exe_path}" +app_info_print {app_id} +quit > {output_file} 2>&1'
+        # f'"{steamcmd_exe_path}" +app_info_print {app_id} +quit > {output_file} 2>&1'
+        f'"{steamcmd_exe_path}" +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
     )
 
     try:
         # Run SteamCMD command and send the output to a file
-        subprocess.run(steamcmd_command, shell=True, check=True)
+        subprocess.run(steamcmd_command, shell=True, check=True, close_fds=True)
+
+        # introduced a delay to allow the file to be written
+        time.sleep(1.5)
 
         # Read the output file
         with open(output_file, "r", encoding="utf-8") as file:
             lines = file.readlines()
+            #close file
+            file.close()
+
 
         foundClientIcon = False
 
@@ -381,7 +390,10 @@ def main():
                 )
             else:
                 print(
-                    f"A game with app_id={app_id} was not found in your Steam libraries"
+                    f"A game with app_id={app_id} was not found in your Steam libraries but I will try to download the icon anyway."
+                )
+                fetch_icon_by_app_id(
+                    steam_path, app_id, "", failed_icons
                 )
 
     # Check if there were any failed icons
