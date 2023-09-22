@@ -180,14 +180,14 @@ def fetch_icon_by_app_id(client, steamPath, app_id, game_name=None, failed_icons
 
                     download_icon(app_id, client_icon_filename, client_icon_url, failed_icons, game_name,
                                   steamcmd_install_dir)
+
+                    return
                 else:
-                    print("[FAST] Unable to find 'clienticon' in the app info")
+                    print("[FAST] Unable to find 'clienticon' in the app info for app ID: ", app_id)
             else:
                 print("[FAST] Unable to get product info for app ID: ", app_id)
         except Exception as err:
             print(f"[FAST] An error occurred: {err}")
-
-        return
     else:
         print("[FAST] Not connected to Steam. Will use SteamCMD to get the app info")
 
@@ -442,6 +442,9 @@ def main():
                     f"A game with app_id={app_id} was not found in your Steam libraries but I will try to download the icon anyway."
                 )
                 fetch_icon_by_app_id(client, steam_path, app_id, "", failed_icons)
+
+    # Remove 228980 from the failed icons list if it exists in the list
+    failed_icons = [game for game in failed_icons if game["appid"] != "228980"]
 
     # Check if there were any failed icons
     if not failed_icons:
