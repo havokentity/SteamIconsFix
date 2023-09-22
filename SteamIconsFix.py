@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 Script Name: Steam Icons Fix
 Author: Rajesh Peter Douglas D'Monte
-Email: havokentity@gmail.com
+Email: dudenstein.games@gmail.com, rajeshdmonte@gmail.com
 
 This Python script downloads game icons for installed or specific Steam games.
 
