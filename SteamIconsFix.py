@@ -200,16 +200,24 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
         print(f"SteamCMD found in the following path: {steamcmd_install_dir}")
 
 
+    #Prepare a string of +ggs with a fixed count of n. This is to let SteamCMD update itself
+    #and then update the app_info_print command to get the latest info
+
+    n = 10
+    ggs = ""
+    for i in range(n):
+        ggs += "+gg "
+
     # Define the SteamCMD command and output file path
     # f'"{steamcmd_exe_path}" +login anonymous +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
     steamcmd_command = (
         # f'"{steamcmd_exe_path}" +app_info_print {app_id} +quit > {output_file} 2>&1'
-        f'"{steamcmd_exe_path}" +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
+        f'"{steamcmd_exe_path}" {ggs} +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
     )
 
     try:
         # Run SteamCMD command and send the output to a file
-        subprocess.run(steamcmd_command, shell=True, check=True, close_fds=True)
+        subprocess.run(steamcmd_command, shell=True, check=True, close_fds=True, start_new_session=True)
 
         # introduced a delay to allow the file to be written
         time.sleep(1.5)
