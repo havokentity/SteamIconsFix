@@ -57,6 +57,9 @@ import sys
 import requests
 import subprocess
 import winreg
+from steam.client import SteamClient
+from steam.enums import EResult
+from steam.enums.emsg import EMsg
 
 # Import progress bar library
 from tqdm import tqdm
@@ -152,13 +155,41 @@ def get_steam_library_folders(steamPath):
 
 
 # Function to fetch an icon by app ID
-def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
+def fetch_icon_by_app_id(client, steamPath, app_id, game_name=None, failed_icons=[]):
     # Define the default installation directory for SteamCMD
     # steamcmd_install_dir = os.path.join(
     #     os.getenv("ProgramFiles(x86)"), "Steam"
     # )
 
     steamcmd_install_dir = steamPath
+
+    # Get the app info from the Steam API
+    if client.connected:
+        try:
+            app_info = client.get_product_info(apps=[int(app_id)])
+            if app_info:
+                app = app_info['apps'][int(app_id)]
+                if 'common' in app and 'clienticon' in app['common']:
+                    client_icon_filename = app['common']['clienticon']
+                    client_icon_url = f"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{app_id}/{client_icon_filename}.ico"
+
+                    # Print the icon URL
+                    print(
+                        f"[FAST] Client Icon URL for {game_name} - {app_id}: {client_icon_url}"
+                    )
+
+                    download_icon(app_id, client_icon_filename, client_icon_url, failed_icons, game_name,
+                                  steamcmd_install_dir)
+                else:
+                    print("[FAST] Unable to find 'clienticon' in the app info")
+            else:
+                print("[FAST] Unable to get product info for app ID: ", app_id)
+        except Exception as err:
+            print(f"[FAST] An error occurred: {err}")
+
+        return
+    else:
+        print("[FAST] Not connected to Steam. Will use SteamCMD to get the app info")
 
     # steamcmd.exe path
     steamcmd_exe_path = os.path.join(steamcmd_install_dir, "steamcmd.exe")
@@ -212,7 +243,7 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
     # f'"{steamcmd_exe_path}" +login anonymous +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
     steamcmd_command = (
         # f'"{steamcmd_exe_path}" +app_info_print {app_id} +quit > {output_file} 2>&1'
-        f'"{steamcmd_exe_path}" {ggs} +app_info_update 1 +app_info_print {app_id} +quit > {output_file} 2>&1'
+        f'"{steamcmd_exe_path}" {ggs} +app_info_update 1 +app_info_print {app_id} {ggs} +quit > {output_file} 2>&1'
     )
 
     try:
@@ -250,30 +281,8 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
 
                     foundClientIcon = True
 
-                    # Download the icon
-                    response = requests.get(client_icon_url)
-                    if response.status_code == 200:
-                        client_icon_filename = f"{client_icon_filename}.ico"
-                        icon_file_path = os.path.join(
-                            steamcmd_install_dir, "steam", "games", client_icon_filename
-                        )
-                        os.makedirs(os.path.dirname(icon_file_path), exist_ok=True)
-
-                        # Save the icon to a file
-                        with open(icon_file_path, "wb") as icon_file:
-                            icon_file.write(response.content)
-                        print(f"Client Icon saved to: {icon_file_path}")
-                    else:
-                        print(
-                            f"Failed to download Client Icon from URL: {client_icon_url}"
-                        )
-                        failed_icons.append(
-                            {
-                                "appid": app_id,
-                                "name": game_name,
-                                "reason": "failed_to_download",
-                            }
-                        )
+                    download_icon(app_id, client_icon_filename, client_icon_url, failed_icons, game_name,
+                                  steamcmd_install_dir)
 
                     break
 
@@ -287,6 +296,33 @@ def fetch_icon_by_app_id(steamPath, app_id, game_name=None, failed_icons=[]):
 
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
+
+
+def download_icon(app_id, client_icon_filename, client_icon_url, failed_icons, game_name, steamcmd_install_dir):
+    # Download the icon
+    response = requests.get(client_icon_url)
+    if response.status_code == 200:
+        client_icon_filename = f"{client_icon_filename}.ico"
+        icon_file_path = os.path.join(
+            steamcmd_install_dir, "steam", "games", client_icon_filename
+        )
+        os.makedirs(os.path.dirname(icon_file_path), exist_ok=True)
+
+        # Save the icon to a file
+        with open(icon_file_path, "wb") as icon_file:
+            icon_file.write(response.content)
+        print(f"Client Icon saved to: {icon_file_path}")
+    else:
+        print(
+            f"Failed to download Client Icon from URL: {client_icon_url}"
+        )
+        failed_icons.append(
+            {
+                "appid": app_id,
+                "name": game_name,
+                "reason": "failed_to_download",
+            }
+        )
 
 
 # Function to get list of Steam games in local libraries
@@ -336,9 +372,9 @@ def get_steam_games(steamPath, printFullList=True):
     # Return the list of games
     return all_games
 
-
 # Main function
 def main():
+
     # Usage message if no arguments were provided
     if len(sys.argv) < 2:
         print("Usage: python script.py [<app_id> ...] <list> <all>")
@@ -350,6 +386,13 @@ def main():
     else:
         print("Steam installation not found. Exiting...")
         return
+
+    client = SteamClient()
+
+    if client.anonymous_login() == EResult.OK:
+        print("Logged in to Steam anonymously and successfully")
+    else:
+        print("Could not log in to Steam anonymously. Will use SteamCMD to get the app info")
 
     # List to store failed icons
     failed_icons = []
@@ -376,7 +419,7 @@ def main():
 
         # Use tqdm to wrap the for loop and create a progress bar
         for game in tqdm(all_games, desc="Downloading icons"):
-            fetch_icon_by_app_id(steam_path, game["appid"], game["name"], failed_icons)
+            fetch_icon_by_app_id(client, steam_path, game["appid"], game["name"], failed_icons)
     else:
         games = get_steam_games(steam_path, False)
 
@@ -393,16 +436,12 @@ def main():
             game = next((game for game in games if game["appid"] == app_id), None)
 
             if game:
-                fetch_icon_by_app_id(
-                    steam_path, game["appid"], game["name"], failed_icons
-                )
+                fetch_icon_by_app_id(client, steam_path, game["appid"], game["name"], failed_icons)
             else:
                 print(
                     f"A game with app_id={app_id} was not found in your Steam libraries but I will try to download the icon anyway."
                 )
-                fetch_icon_by_app_id(
-                    steam_path, app_id, "", failed_icons
-                )
+                fetch_icon_by_app_id(client, steam_path, app_id, "", failed_icons)
 
     # Check if there were any failed icons
     if not failed_icons:
@@ -425,8 +464,12 @@ def main():
         )
         print(f"python .\\SteamIconsFix.py {' '.join(failed_app_ids)}")
 
+    client.logout()
+
 
 if __name__ == "__main__":
     print("SteamFix icons for all installed games")
     main()
+
+
     print("Done")
