@@ -147,8 +147,9 @@ def get_steam_library_folders(steamPath):
                 # Append "/steamapps" to the path
                 path = os.path.join(path, "steamapps")
 
-                # Add the path to the list of library folders
-                library_folders.append(path)
+                # Add the path to the list of library folders if it exists
+                if os.path.exists(path):
+                    library_folders.append(path)
 
     # Return the list of library folders
     return library_folders
