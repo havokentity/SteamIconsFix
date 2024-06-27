@@ -3,7 +3,7 @@
   <component name="Black">
     <option name="enabledOnReformat" value="true" />
     <option name="pathToExecutable" value="D:\anaconda3\Scripts\black.exe" />
-    <option name="sdkUUID" value="f3820838-3937-4e0a-a657-e084e9b399fa" />
+    <option name="sdkName" value="Python 3.12 (SteamIconsFix)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (SteamIconsFix2)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (SteamIconsFix)" project-jdk-type="Python SDK" />
 </project>
