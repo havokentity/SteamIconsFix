@@ -72,6 +72,8 @@ for these games, use the following command (replace `<failed_app_ids>` with the 
    python SteamIconsFix.py <failed_app_ids>
    ```
 
+If there's an exception on first run a after a long pause, re-running the script usually succeeds on the 2nd or 3rd time.
+
 ## License
 
 This project is under an [MIT License](https://opensource.org/licenses/MIT). Detailed information can be found in the
